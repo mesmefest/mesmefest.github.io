@@ -1,15 +1,13 @@
 @font-face {
   font-family: 'Fraktion';
-  src: url('./fonts/fraktion/PPFraktionSans-Bold.otf'); */
-  font-weight: bold;
+  src: url('./fonts/fraktion/PPFraktionSans-Bold.otf');
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
   font-family: 'Playground';
-  src: url('./fonts/playground/PPPlayground-Medium.otf');
-  font-weight: bold;
+  src: url('./fonts/playground/PPPlayground-Thin.otf');
   font-style: normal;
   font-display: swap;
 }
@@ -17,7 +15,6 @@
 @font-face {
     font-family: 'Mori';
     src: url('./fonts/mori/PPMori-SemiBold.otf');
-    font-weight: bold;
     font-style: normal;
     font-display: swap;
   }
@@ -103,7 +100,6 @@ section {
   flex-direction: column;
   justify-content: top;
   position: relative;
-
 }
 
 section h2 {
@@ -152,6 +148,16 @@ html {
   margin-right: 10px;
 }
 
+/* Section GIF styling */
+.section-gif {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  max-height: 80px;
+  width: auto;
+  z-index: 10;
+}
+
 /* Image styling */
 img {
   /* Default styling for all images */
@@ -181,11 +187,22 @@ img {
   margin-bottom: -9vh;
 }
 
-.logo-text {
-  margin-top: -0.5vh;
+.logo-text-1 {
+  margin-top: -9.7vh;
+  margin-left: -29vh;
   font-family: 'Playground';
-  font-size: 1.5em;
+  font-size: 3em;
   width: fit-content;
+  z-index: 999;
+}
+
+.logo-text-2 {
+  margin-top: -2.5vh;
+  margin-left: 29vh;
+  font-family: 'Playground';
+  font-size: 3em;
+  width: fit-content;
+  z-index: 999;
 }
   
 

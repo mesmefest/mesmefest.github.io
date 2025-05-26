@@ -169,13 +169,13 @@ img {
 
 .logo-container {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
   position: relative;
   width: 100%;
   max-width: 39vh;
   margin-left: 3%;
+  align-items: center;
 }
 
 /* Logo specific styling */
@@ -185,20 +185,22 @@ img {
   height: auto;
   margin-top: -8vh;
   margin-bottom: -9vh;
+  align-self: center;
 }
 
 .logo-text-1 {
-  margin-top: -9.7vh;
-  margin-left: -29vh;
+  margin-top: -1.7vh;
+  margin-right: -10.7vh;
   font-family: 'Playground';
   font-size: 3em;
   width: fit-content;
   z-index: 999;
+  align-self: top;
 }
 
 .logo-text-2 {
-  margin-top: -2.5vh;
-  margin-left: 29vh;
+  margin-bottom: -8.7vh;
+  margin-left: -10.7vh;
   font-family: 'Playground';
   font-size: 3em;
   width: fit-content;

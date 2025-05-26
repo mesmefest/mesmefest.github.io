@@ -4,90 +4,91 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Classical Music Festival</title>
+  <title>Mesme Spring</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <div class="decor-1">
-    <img class="inverted" src="assets/hands-on-weist.png" alt="Starburst" width="60" />
-  </div>
   <header>
-    <div>
-      <h1>Mesme</h1>
-      <div class="subtext">Fest<br />2025</div>
+    <div class="logo-container">
+      <img src="assets/logo.svg" alt="Mesme Logo" class="logo">
+      <div class="logo-text">Spring 2025</div>
+      <!-- <div class="decor-title-1">✶</div>
+      <div class="decor-title-2">✦</div>
+      <div class="decor-title-3">✰</div> -->
     </div>
     <nav>
-      <a href="#tickets">Tickets</a>
-      <a href="#agenda">Agenda</a>
       <a href="#artists">Artists</a>
+      <a href="#schedule">Schedule</a>
       <a href="#location">Location</a>
+      <a href="#tickets">Tickets</a>
     </nav>
   </header>
 
-  <!-- Tickets Section -->
-  <section id="tickets">
-    <div class="section-content">
-      <h2>Tickets</h2>
-      <p>Get your tickets for the most anticipated classical music event of 2025. Early bird tickets are now available with special pricing for students and groups.</p>
-      <p>Choose from our different ticket options including single day passes, weekend packages, and VIP experiences with exclusive access to rehearsals and meet-and-greets with the artists.</p>
-      <p>All tickets include access to the main performances, program booklets, and complimentary refreshments during intermissions.</p>
-      <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to top</button>
-    </div>
-  </section>
-
-  <!-- Agenda Section -->
-  <section id="agenda">
-    <div class="section-content">
-      <h2>Agenda</h2>
-      <p>Our carefully curated program spans across multiple days, featuring works from the Baroque period to contemporary compositions.</p>
-      <p>Day 1: Opening night featuring Beethoven's Symphony No. 9</p>
-      <p>Day 2: Chamber music performances highlighting string quartets</p>
-      <p>Day 3: Piano recitals and concertos</p>
-      <p>Day 4: Grand finale with a full orchestral performance</p>
-      <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to top</button>
-    </div>
-  </section>
-
   <!-- Artists Section -->
   <section id="artists">
-    <div class="section-content">
-      <h2>Artists</h2>
-      <p>We are proud to present a lineup of world-renowned musicians and emerging talents from across the globe.</p>
-      <p>Our festival features solo performers, chamber ensembles, and full orchestras, bringing together diverse interpretations and musical perspectives.</p>
-      <p>Special guest conductors will lead our festival orchestra in performances of classical masterpieces and exciting new commissions.</p>
-      <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to top</button>
+    <div class="section-content" data-section-file="sections/artists.html">
+      <!-- Content will be loaded dynamically -->
+      <div class="loading">Loading...</div>
+    </div>
+  </section>
+
+  <!-- Schedule Section -->
+  <section id="schedule">
+    <div class="section-content" data-section-file="sections/schedule.html">
+      <!-- Content will be loaded dynamically -->
+      <div class="loading">Loading...</div>
     </div>
   </section>
 
   <!-- Location Section -->
   <section id="location">
-    <div class="section-content">
-      <h2>Location</h2>
-      <p>The festival takes place in multiple iconic venues across the city, each chosen for its exceptional acoustics and historical significance.</p>
-      <p>Main concerts will be held in the Grand Concert Hall, with additional performances in the Historic Opera House and the Modern Arts Center.</p>
-      <p>All venues are centrally located and easily accessible by public transportation. Accommodations are available nearby, with special rates for festival attendees.</p>
-      <button class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">Back to top</button>
+    <div class="section-content" data-section-file="sections/location.html">
+      <!-- Content will be loaded dynamically -->
+      <div class="loading">Loading...</div>
     </div>
   </section>
-</div>
 
-<div class="content-spacer"></div>
+  <!-- Tickets Section -->
+  <section id="tickets">
+    <div class="section-content" data-section-file="sections/tickets.html">
+      <!-- Content will be loaded dynamically -->
+      <div class="loading">Loading...</div>
+    </div>
+  </section>
 
-<div class="decor-3">
-  <img class="inverted" src="assets/hands-on-weist.png" alt="Diamond" width="60" />
-</div>
+  <div class="content-spacer"></div>
 
-<footer class="footer">
-  <div>cmfestival.com<br />Classical Music Festival®<br />Worldwide</div>
-</footer>
-
-<div class="decor-5">
-  <div class="decor-5">
-    <img class="inverted" src="assets/hands-on-weist.png" alt="Glow Dot" width="60" />
-  </div>
+  <footer class="footer">
+    <div>mesmefest.github.io</div>
+    <div>Mesme Spring 2025</div>
+  </footer>
 
   <script>
+    // Load section content dynamically
+    document.addEventListener('DOMContentLoaded', function() {
+      const sectionContainers = document.querySelectorAll('.section-content[data-section-file]');
+      
+      sectionContainers.forEach(container => {
+        const fileName = container.getAttribute('data-section-file');
+        
+        fetch(fileName)
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`Failed to load ${fileName}`);
+            }
+            return response.text();
+          })
+          .then(html => {
+            container.innerHTML = html;
+          })
+          .catch(error => {
+            console.error(error);
+            container.innerHTML = `<p>Error loading content. Please try again later.</p>`;
+          });
+      });
+    });
+
     // Update active class on nav items based on scroll position
     window.addEventListener('scroll', function() {
       const sections = document.querySelectorAll('section');

@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Fraktion';
-  src: url('./fonts/fraktion/PPFraktionSans-Bold.otf');
+  src: url('./fonts/fraktion/PPFraktionMono-Bold.otf');
   font-style: normal;
   font-display: swap;
 }
@@ -128,7 +128,7 @@ html {
   background: none;
   border: none;
   color: white;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fraktion';
   font-size: 0.9em;
   cursor: pointer;
   padding: 0;
